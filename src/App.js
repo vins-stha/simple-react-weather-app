@@ -22,10 +22,12 @@ class App extends React.Component {
     this.getWeather();
   }
 
-  getWeather = async (e) => { alert();
-    e.preventDefault();
-    const city = e.target.elements.city.value;
-    const country = e.target.elements.country.value;
+  getWeather = async (e) => { //alert();
+    const city ="Helsinki";
+    const country ="FI";
+   // e.preventDefault();
+    //const city = e.target.elements.city.value;
+    //const country = e.target.elements.country.value;
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`);//alert(api_call);
     const data = await api_call.json();
     console.log(" dfta "+JSON.stringify(data));
