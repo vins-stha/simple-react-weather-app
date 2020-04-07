@@ -30,23 +30,40 @@
     padding: 15px;;
 }
 .location {
-    display: inline-block;
+    
     border:1px solid blue;
     margin-top: 10px;
     
+    display: block;
+    
 }
 .temperature {
-    font-size: 3rem;
-    border: 1px solid red;
-    display: inline;
+    font-size: 4rem;
+    
+    width: 74%;
+    float: left;
+   
 
 }
 .maxMin{
-    float:left;
-    border:1px solid white;
-    width: 100px;
+    float:right;
+    
+    width:25%;
     height: 50px;
+    font-size: 1.25rem;
+}
+.max, .min {
+    border-bottom:  1px dotted #FFF;
+}
+.feels_like {
+    display: block;
 
+}
+.icon {
+    border: 1px solid yellow;
+    display: inline-block;
+    background-image: url('/src/components/images/icon-1.svg');
+    width: 100px; height: 60px;
 }
 /* 
 .day

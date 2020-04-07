@@ -20,6 +20,7 @@ const Weather = (props) => (
           <h4 className="py-3">{props.icon}</h4>
 		  
         </div>
+		<div className ="weather_info">
 		<div className ="weather_container">
 			<div className="unit_forcast">
 				<div className="day_date_header">
@@ -30,15 +31,17 @@ const Weather = (props) => (
 					<div className = "location">{props.city}, {props.country}</div>
 					<div className ="temperature">{props.temp} &deg; C </div>
 					<div className ="maxMin">
-						<div className ="max">{props.max}</div>
-						<div className ="min">{props.min}</div>
+						<div className ="max">Max. {props.max}YY</div>
+						<div className ="min">Min. {props.min}ZZ</div>
+						<div className ="feels_like">Feels like {props.feels}XX</div>
 					</div>
-					<div className ="feels_like">{props.feels}</div>
+					
 					<div className ="icon">icon</div>
 
 				</div>
 			</div>
 
+		</div>
 		</div>
         
 
