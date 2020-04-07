@@ -12,6 +12,9 @@ class App extends React.Component {
     super();
     this.state = {
       temperature: undefined,
+      min : undefined,
+      max : undefined,
+      feels : undefined,
       city: undefined,
       country: undefined,
       humidity: undefined,
@@ -22,18 +25,19 @@ class App extends React.Component {
     this.getWeather();
   }
 
-  getWeather = async (e) => { //alert();
-    const city ="Helsinki";
-    const country ="FI";
-   // e.preventDefault();
-    //const city = e.target.elements.city.value;
-    //const country = e.target.elements.country.value;
+  getWeather = async (event) => { 
+  event.preventDefault();
+    const city = event.target.elements.city.value;
+    const country = event.target.elements.country.value;
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`);//alert(api_call);
     const data = await api_call.json();
     console.log(" dfta "+JSON.stringify(data));
     // if (city && country) {
       this.setState({
         temperature: data.main.temp,
+        min: data.main.temp_min,
+        max: data.main.temp_max,
+        feels : data.main.feels_like,
         city: data.name,
         country: data.sys.country,
         humidity: data.main.humidity,
@@ -56,7 +60,17 @@ class App extends React.Component {
     return (
       <div>
         <Form getWeather = {this.getWeather}></Form>
-        <Weather city={this.state.city} country={this.state.country} icon={this.state.icon}/>
+        <Weather 
+          city = {this.state.city} 
+          country = {this.state.country} 
+          icon = {this.state.icon} 
+          temp = {this.state.temperature }
+          description = { this.state.description}
+          min = {this.state.min}
+          max = {this.state.max}
+          feels = {this.state.feels}
+
+          />
 
 
       </div>
